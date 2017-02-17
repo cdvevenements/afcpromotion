@@ -1,0 +1,46 @@
+
+
+
+{
+    "map": {
+        "topleft": {
+            "lat":"43.650526",
+            "lon":"1.336451",
+        },
+        "bottomright": {
+            "lat":"43.547470",
+            "lon":"1.504336",
+        },
+        "center": {
+            "lat":"43.543022",
+            "lon":"1.512146",
+        },
+        "zoom":"12",
+        "image": "tlse.jpg",
+    },
+    
+    
+    "programs": [
+             {
+             "point": {
+                "lat":"43.600947",
+                "lon":"1.437216",
+             },
+             "name":"Antarès",
+             "folder":"antares",
+                 "video":"video.mov",
+             "address":"Linux users group meets second Wednesday of each month",
+             },
+                 
+             {
+              "point": {
+              "lat":"43.596413",
+              "lon":"1.407690",
+              },
+              "name":"Montcalm",
+              "folder":"montcalm",
+                 "video":"video.mov",
+              "address":"Linux users group meets second Wednesday of each month",
+             },
+            ]
+}

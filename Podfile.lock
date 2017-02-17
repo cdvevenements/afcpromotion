@@ -1,0 +1,44 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - iCarousel (1.8.3)
+  - mailcore2-ios (0.6.4)
+  - pop (1.0.9)
+  - SSZipArchive (1.7)
+  - SVProgressHUD (2.1.2)
+  - VIMVideoPlayer (6.0.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - iCarousel
+  - mailcore2-ios
+  - pop
+  - SSZipArchive
+  - SVProgressHUD
+  - VIMVideoPlayer
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  mailcore2-ios: 3ff0be2fa553d4da9c11d39c11d51863c768f24f
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SSZipArchive: 63f8e11cfcc33e03e4cd666b4359ea8bd6facd0c
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  VIMVideoPlayer: f4ed0a9986294ec3684a2e6bdc738e30051ef4ef
+
+PODFILE CHECKSUM: 848c73f0ae792e9e398b88892484c2657213fcc7
+
+COCOAPODS: 1.1.1
