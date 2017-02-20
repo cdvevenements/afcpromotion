@@ -18,15 +18,15 @@
 
 == VIDEO ==
 - ? include logo AFC
-- meilleure touch UI carrousel
+- OK meilleure touch UI carrousel
 - OK meilleur design
 
 
 == CONTACT ==
-- ajout fontes custom
-- créer formulaire Web
-- ajout JS pour valider email
-- ajout JS pour valider champs requis
+- NOK créer formulaire Web
+- NOK ajout JS pour valider email
+- NOK ajout JS pour valider champs requis
+- custom formulaire natif
 
 
 == EMAIL ==

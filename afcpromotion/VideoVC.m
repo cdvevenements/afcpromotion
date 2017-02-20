@@ -77,6 +77,10 @@
     [[self cvCarousel] setBackgroundColor:[UIColor clearColor]];
     [[self cvCarousel] setDelegate:self];
     [[self cvCarousel] setDataSource:self];
+    [[self cvCarousel] setBounceDistance:0.2];
+    [[self cvCarousel] setType:iCarouselTypeLinear];
+    [[self cvCarousel] setScrollSpeed:0.4];
+
     [[self pcPages] setNumberOfPages:[[self images] count]];
     [[self pcPages] setCurrentPage:0];
 }
