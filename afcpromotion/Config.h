@@ -32,12 +32,20 @@
 #define FG_COLOR            RGBA(31, 31, 31, 255)
 #define BG_COLOR            RGBA(244, 244, 241, 255)
 
-
-#define MCFONT_XLARGE                           [UIFont fontWithName:@"HelveticaNeue-Light" size:[ACUtils isPad] ? 18 : IPHONE_GT5 ? 26 : 20]
-#define MCFONT_LARGE                            [UIFont fontWithName:@"HelveticaNeue-Light" size:[ACUtils isPad] ? 16 : IPHONE_GT5 ? 20 : 16]
-#define MCFONT_MEDIUM                           [UIFont fontWithName:@"HelveticaNeue-Light" size:[ACUtils isPad] ? 14 : IPHONE_GT5 ? 16 : 14]
-#define MCFONT_SMALL                            [UIFont fontWithName:@"HelveticaNeue-Light" size:[ACUtils isPad] ? 12 : IPHONE_GT5 ? 12 : 10]
-#define MCFONT_XSMALL                           [UIFont fontWithName:@"HelveticaNeue-Light" size:[ACUtils isPad] ? 10 : IPHONE_GT5 ? 10 : 8]
-
+// ==========================================================================================
+// FONTS : modify these fonts if needed, beware of the width !!!
+// ==========================================================================================
+#define __FONT_BASE                             @"GGalexandra"
+#define __FONT_REGULAR                          @"-Regular"
+#define __FONT_BOLD                             @"-Bold"
+#define __FONT_LITE                             @"-Light"
+#define FONT_SZ_XLARGE                          26
+#define FONT_SZ_LARGE                           20
+#define FONT_SZ_MEDIUM                          16
+#define FONT_SZ_SMALL                           12
+#define FONT_SZ_XSMALL                          10
+#define FONT(sz)                                [UIFont fontWithName:[NSString stringWithFormat:@"%@%@", __FONT_BASE, __FONT_REGULAR] size:(sz)]
+#define FONT_BOLD(sz)                           [UIFont fontWithName:[NSString stringWithFormat:@"%@%@", __FONT_BASE, __FONT_BOLD] size:(sz)]
+#define FONT_LITE(sz)                           [UIFont fontWithName:[NSString stringWithFormat:@"%@%@", __FONT_BASE, __FONT_LITE] size:(sz)]
 
 #endif /* Config_h */

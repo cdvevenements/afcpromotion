@@ -25,6 +25,12 @@
 
 @implementation ContactVC
 
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -33,6 +39,9 @@
     html = [html stringByReplacingOccurrencesOfString:@"$PROGRAM" withString:[[self program] name]];
     [[self wvContact] loadHTMLString:html baseURL:[NSURL URLWithString:[DataManager dataPath]]];
     [[[self wvContact] scrollView] setScrollEnabled:NO];
+    
+    
+    [[self navigationItem] setTitle:[[self program] name]]; // change le titre de la barre
 }
 
 - (void)didReceiveMemoryWarning {

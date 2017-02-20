@@ -26,6 +26,54 @@
                  
                  {
                  "point": {
+                 "lat": "43.596381",
+                 "lon": "1.421934"
+                 },
+                 "name": "BL15",
+                 "folder": "bl15",
+                 "video": "video.mov",
+                 "address": "13, 14 et 15 place de Barrière de Lombez, 31300 Toulouse",
+                 },
+                 
+                 
+                 {
+                 "point": {
+                 "lat": "43.633645",
+                 "lon": "1.470016"
+                 },
+                 "name": "Mariposa",
+                 "folder": "mariposa",
+                 "video": "video.mov",
+                 "address": "5 rue André Vasseur, 31200 Toulouse",
+                 },
+                 
+                 
+                 {
+                 "point": {
+                 "lat": "43.622453",
+                 "lon": "1.456617"
+                 },
+                 "name": "Nicol",
+                 "folder": "nicol",
+                 "video": "video.mov",
+                 "address": "91 chemin de Nicol, 31200 Toulouse",
+                 },
+                 
+                 
+                 {
+                 "point": {
+                 "lat": "43.613241",
+                 "lon": "1.344028"
+                 },
+                 "name": "Pibrac",
+                 "folder": "pibrac",
+                 "video": "video.mov",
+                 "address": "31820 Pibrac",
+                 },
+                 
+                 
+                 {
+                 "point": {
                  "lat": "43.554906",
                  "lon": "1.509777"
                  },

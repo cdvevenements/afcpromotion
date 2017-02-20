@@ -31,16 +31,29 @@
     [super viewDidLoad];
     
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
-    [[self navigationController] setTitle:@"Retour"];
+    [[[self navigationController] navigationItem] setTitle:@"Retour"];
+
+    [[self navigationItem] setTitle:[[self program] name]]; // change le titre de la barre
+
     UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me tenir informé" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
     [[self navigationItem] setRightBarButtonItem:contact];
     
+    // disable swipe back gesture
+    if ([[self navigationController] respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        [[[self navigationController] view] removeGestureRecognizer:[[self navigationController] interactivePopGestureRecognizer]];
+    }
+    
+    // change le titre de "< Back" pour les PROCHAINS UiViewController qui seront PUSHED
+    UIBarButtonItem * bbi = [[UIBarButtonItem alloc]initWithTitle:[self isVideo] ? @"Vidéo" : @"Images" style:UIBarButtonItemStylePlain target:self action:@selector(pop)];
+    [[self navigationItem] setBackBarButtonItem:bbi];
     
     // ui
+    [[self pcPages] setPageIndicatorTintColor:[UIColor colorWithWhite:0.0 alpha:0.4]];
+    [[self pcPages] setCurrentPageIndicatorTintColor:FG_COLOR];
     [[[self btMail] layer] setBorderWidth:2];
     [[[self btMail] layer] setBorderColor:[UIColor whiteColor].CGColor];
     [[[self btMail] layer] setCornerRadius:4.0];
-    [[self view] setBackgroundColor:[UIColor blackColor]];
+    [[self view] setBackgroundColor:BG_COLOR];
     
 
     // video
