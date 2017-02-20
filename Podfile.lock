@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - DLRadioButton (1.4.9)
   - iCarousel (1.8.3)
   - mailcore2-ios (0.6.4)
   - pop (1.0.9)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DLRadioButton
   - iCarousel
   - mailcore2-ios
   - pop
@@ -32,6 +34,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   mailcore2-ios: 3ff0be2fa553d4da9c11d39c11d51863c768f24f
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   VIMVideoPlayer: f4ed0a9986294ec3684a2e6bdc738e30051ef4ef
 
-PODFILE CHECKSUM: 848c73f0ae792e9e398b88892484c2657213fcc7
+PODFILE CHECKSUM: ef3d3e2b9e68920fb321cb6ecb9f87f2393ca32b
 
 COCOAPODS: 1.1.1

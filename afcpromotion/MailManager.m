@@ -120,13 +120,13 @@
 
 
 
-+ (void)sendEmail:(NSString *)aDestination withFirstName:(NSString *)aFirstName withLastName:(NSString *)aLastName withAddress:(NSString *)aAddress withProgram:(NSString *)aProgram withType:(NSString *)aType withRooms:(NSString *)aRooms withSurface:(NSString *)aSurface withDelegate:(id<MailManagerDelegate>)aDelegate {
++ (void)sendEmail:(NSString *)aDestination withGender:(NSString *)aGender withFirstName:(NSString *)aFirstName withLastName:(NSString *)aLastName withAddress:(NSString *)aAddress withProgram:(NSString *)aProgram withType:(NSString *)aType withRooms:(NSString *)aRooms withSurface:(NSString *)aSurface withDelegate:(id<MailManagerDelegate>)aDelegate {
     
     // save to database
-    NSString * dbline = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;%@;%@\n", aFirstName, aLastName, aDestination, aAddress, aProgram, aType, aRooms, aSurface];
+    NSString * dbline = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;%@;%@;%@\n", aGender, aFirstName, aLastName, aDestination, aAddress, aProgram, aType, aRooms, aSurface];
     NSData * data = [NSData dataWithContentsOfFile:[DataManager emailDatabasePath]];
     if(data == nil) {
-        data = [@"NOM;PRENOM;EMAIL;ADRESSE;PROGRAMME;TYPE;PIECES;SURFACE\n" dataUsingEncoding:NSUTF8StringEncoding];
+        data = [@"GENRE;NOM;PRENOM;EMAIL;ADRESSE;PROGRAMME;TYPE;PIECES;SURFACE\n" dataUsingEncoding:NSUTF8StringEncoding];
         [[NSFileManager defaultManager] createFileAtPath:[DataManager emailDatabasePath] contents:data attributes:nil];
     }
     

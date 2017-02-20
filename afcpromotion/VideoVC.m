@@ -96,7 +96,7 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [[[self uvPlayer] player] pause];
+//    [[[self uvPlayer] player] pause];
 }
 
 
@@ -106,7 +106,11 @@
 
 
 - (IBAction)onMail:(id)sender {
-    ContactVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idContactVC"];
+//    ContactVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idContactVC"];
+//    [vc setProgram:[self program]];
+//    [[self navigationController] pushViewController:vc animated:YES];
+    
+    FormVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idFormVC"];
     [vc setProgram:[self program]];
     [[self navigationController] pushViewController:vc animated:YES];
 }

@@ -13,6 +13,7 @@
 		09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */; };
 		09723E501E57502100806B18 /* ContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E4F1E57502100806B18 /* ContactVC.m */; };
 		09723E531E5AE0F000806B18 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 09723E521E5AE0F000806B18 /* TODO */; };
+		09723E571E5B4B0A00806B18 /* FormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E561E5B4B0A00806B18 /* FormVC.m */; };
 		098B5E881E548BE600DA0105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E871E548BE600DA0105 /* main.m */; };
 		098B5E8B1E548BE600DA0105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E8A1E548BE600DA0105 /* AppDelegate.m */; };
 		098B5E911E548BE600DA0105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098B5E8F1E548BE600DA0105 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		09723E4E1E57502100806B18 /* ContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactVC.h; sourceTree = "<group>"; };
 		09723E4F1E57502100806B18 /* ContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactVC.m; sourceTree = "<group>"; };
 		09723E521E5AE0F000806B18 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		09723E551E5B4B0A00806B18 /* FormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormVC.h; sourceTree = "<group>"; };
+		09723E561E5B4B0A00806B18 /* FormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormVC.m; sourceTree = "<group>"; };
 		098B5E831E548BE600DA0105 /* afcpromotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = afcpromotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098B5E871E548BE600DA0105 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		098B5E891E548BE600DA0105 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				098B5E941E548BE600DA0105 /* LaunchScreen.storyboard */,
 				098B5E971E548BE600DA0105 /* Info.plist */,
 				098B5E861E548BE600DA0105 /* Supporting Files */,
+				09723E551E5B4B0A00806B18 /* FormVC.h */,
+				09723E561E5B4B0A00806B18 /* FormVC.m */,
 			);
 			path = afcpromotion;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				098B5E8B1E548BE600DA0105 /* AppDelegate.m in Sources */,
 				098B5E9F1E548E5000DA0105 /* MailManager.m in Sources */,
 				098B5EAC1E5494E500DA0105 /* VideoVC.m in Sources */,
+				09723E571E5B4B0A00806B18 /* FormVC.m in Sources */,
 				09723E431E5588C200806B18 /* DownloadVC.m in Sources */,
 				098B5E881E548BE600DA0105 /* main.m in Sources */,
 				098B5EB61E54A08F00DA0105 /* DataManager.m in Sources */,

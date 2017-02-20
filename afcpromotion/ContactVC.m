@@ -94,7 +94,7 @@
         NSString * rooms = [self getQueryParam:@"rooms" fromURL:[request URL]];
         NSString * surface = [self getQueryParam:@"surface" fromURL:[request URL]];
         
-        [MailManager sendEmail:email withFirstName:fname withLastName:lname withAddress:address withProgram:[[self program] name] withType:type withRooms:rooms withSurface:surface withDelegate:nil];
+        [MailManager sendEmail:email withGender:@"" withFirstName:fname withLastName:lname withAddress:address withProgram:[[self program] name] withType:type withRooms:rooms withSurface:surface withDelegate:nil];
         
         [SVProgressHUD showSuccessWithStatus:@"Merci, vos informations ont bien été prises en compte."];
     }

@@ -13,4 +13,5 @@ target 'afcpromotion' do
   pod 'SSZipArchive'
   pod 'SVProgressHUD'
   pod 'pop'
+  pod 'DLRadioButton'
 end

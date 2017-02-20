@@ -14,6 +14,7 @@
 #import "DataManager.h"
 #import "MailManager.h"
 #import "ContactVC.h"
+#import "FormVC.h"
 
 @interface VideoVC : UIViewController <VIMVideoPlayerDelegate, MailManagerDelegate, iCarouselDataSource, iCarouselDelegate>
 @property (strong, nonatomic) ProgramData *program;
