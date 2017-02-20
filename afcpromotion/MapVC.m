@@ -14,12 +14,18 @@
 
 @implementation MapVC
 
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
-    UIImage * logo = [UIImage imageNamed:@"logo"];
+    UIImage * logo = [UIImage imageNamed:@"logo_round"];
     
     // background
     MapData * m = [[DataManager instance] mapData];
@@ -28,38 +34,48 @@
     UIImage * image = [UIImage imageWithContentsOfFile:path];
     [[self ivMap] setImage:image];
     [[self ivMap] setUserInteractionEnabled:YES];
-    UIGestureRecognizer * tap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(onMapClicked:)];
+//    UIGestureRecognizer * tap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(onMapClicked:)];
 //    [[self uvTouch] addGestureRecognizer:tap];
-    
-    
     
     
     
     // create pins
     CGFloat SZ = 64;
+    int idx = 0;
     for(ProgramData * p in [[DataManager instance] programs]) {
-        
-        
-        double x = map([p coord].latitude,
-                       MIN([m topleft].latitude, [m bottomright].latitude),
-                       MAX([m topleft].latitude, [m bottomright].latitude),
-                       CGRectGetMinX([[self ivMap] frame]),
-                       CGRectGetMaxX([[self ivMap] frame]));
-        double y = map([p coord].longitude,
+
+        double x = map([p coord].longitude,
                        MIN([m topleft].longitude, [m bottomright].longitude),
                        MAX([m topleft].longitude, [m bottomright].longitude),
-                       CGRectGetMinY([[self ivMap] frame]),
-                       CGRectGetMaxY([[self ivMap] frame]));
+                       CGRectGetMinX([[self ivMap] frame]),
+                       CGRectGetMaxX([[self ivMap] frame]));
+        
+        double y = map([p coord].latitude,
+                       MIN([m topleft].latitude, [m bottomright].latitude),
+                       MAX([m topleft].latitude, [m bottomright].latitude),
+                       CGRectGetMaxY([[self ivMap] frame]),
+                       CGRectGetMinY([[self ivMap] frame]));
         
         
-        UglyPinView * pin = [[NSBundle mainBundle] loadNibNamed:@"UglyPinView" owner:self options:nil][0];
-        [pin setDelegate:self];
-        [pin setProgram:p];
-        [pin setFrame:CGRectMake(x, y, CGRectGetWidth([pin frame]), CGRectGetHeight([pin frame]))];
+        UIButton * pin = [[UIButton alloc] initWithFrame:CGRectMake(x - SZ/2, y - SZ/2, SZ, SZ)];
+        [pin setBackgroundColor:BG_COLOR];
+        [pin setImage:logo forState:UIControlStateNormal];
+        [pin setTag:idx];
+        [[pin layer] setCornerRadius:SZ / 2];
+        [pin addTarget:self action:@selector(onPinClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        CABasicAnimation * pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        pulse.duration = .5;
+        pulse.toValue = [NSNumber numberWithFloat:1.1];
+        pulse.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pulse.autoreverses = YES;
+        pulse.repeatCount = MAXFLOAT;
+        [[pin layer] addAnimation:pulse forKey:@"PULSE_ANIM_KEY"];
 
         
-//        PinView * pin = [[PinView alloc] initWithFrame:CGRectMake(x - SZ/2, y - SZ/2, SZ, SZ) withLogo:logo withProgram:p withDelegate:self];
+
         [[self ivMap] addSubview:pin];
+        idx++;
     }
 }
 
@@ -75,6 +91,38 @@
             [(PinView *)pin collapse];
         }
     }
+}
+
+
+- (void)onPinClicked:(id)aSender {
+    
+    UIButton * pin = (UIButton *)aSender;
+    ProgramData * program = [[[DataManager instance] programs] objectAtIndex: [pin tag]];
+    
+    UIAlertController * contents = [UIAlertController alertControllerWithTitle:[program name] message:[program address] preferredStyle:UIAlertControllerStyleActionSheet];
+    [contents addAction:[UIAlertAction actionWithTitle:@"Voir la vidéo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showMedia:program isVideo:YES];
+    }]];
+    [contents addAction:[UIAlertAction actionWithTitle:@"Voir les images" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showMedia:program isVideo:NO];
+    }]];
+    
+    [[contents popoverPresentationController] setSourceView:pin];
+    [[contents popoverPresentationController] setSourceRect:[pin bounds]];
+    [[contents popoverPresentationController] setPermittedArrowDirections:UIPopoverArrowDirectionAny];
+
+    [self presentViewController:contents animated:YES completion:^{
+        ;
+    }];
+}
+
+
+
+- (void)showMedia:(ProgramData *)aProgram isVideo:(BOOL)aIsVideo {
+    VideoVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idVideoVC"];
+    [vc setIsVideo:aIsVideo];
+    [vc setProgram:aProgram];
+    [[self navigationController] pushViewController:vc animated:YES];
 }
 
 

@@ -1,46 +1,38 @@
-
-
-
 {
     "map": {
         "topleft": {
-            "lat":"43.650526",
-            "lon":"1.336451",
+            "lat": "43.650838",
+            "lon": "1.339972"
         },
         "bottomright": {
-            "lat":"43.547470",
-            "lon":"1.504336",
+            "lat": "43.539290",
+            "lon": "1.534980"
         },
-        "center": {
-            "lat":"43.543022",
-            "lon":"1.512146",
-        },
-        "zoom":"12",
-        "image": "tlse.jpg",
+        "zoom": "12",
+        "image": "tlse.jpg"
     },
-    
-    
     "programs": [
-             {
-             "point": {
-                "lat":"43.600947",
-                "lon":"1.437216",
-             },
-             "name":"Antarès",
-             "folder":"antares",
-                 "video":"video.mov",
-             "address":"Linux users group meets second Wednesday of each month",
-             },
+                 {
+                 "point": {
+                 "lat": "43.648498",
+                 "lon": "1.433332"
+                 },
+                 "name": "Antarès",
+                 "folder": "antares",
+                 "video": "video.mov",
+                 "address": "266 avenue de Fronton, 31200 Toulouse",
+                 },
                  
-             {
-              "point": {
-              "lat":"43.596413",
-              "lon":"1.407690",
-              },
-              "name":"Montcalm",
-              "folder":"montcalm",
-                 "video":"video.mov",
-              "address":"Linux users group meets second Wednesday of each month",
-             },
-            ]
+                 
+                 {
+                 "point": {
+                 "lat": "43.554906",
+                 "lon": "1.509777"
+                 },
+                 "name": "Montcalm",
+                 "folder": "montcalm",
+                 "video": "video.mov",
+                 "address": "5 impasse des Raisins, 31650 Saint-Orens-de-Gameville",
+                 }
+                 ]
 }

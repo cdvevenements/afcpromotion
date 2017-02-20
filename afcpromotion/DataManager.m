@@ -96,12 +96,14 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                     CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
                     [map setBottomright:CLLocationCoordinate2DMake(lat, lon)];
                 }
-                {
-                    NSDictionary * coord = [m objectForKey:@"center"];
-                    CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];
-                    CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
-                    [map setCenter:CLLocationCoordinate2DMake(lat, lon)];
-                }
+                
+                
+//                {
+//                    NSDictionary * coord = [m objectForKey:@"center"];
+//                    CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];
+//                    CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
+//                    [map setCenter:CLLocationCoordinate2DMake(lat, lon)];
+//                }
 
                 [sInstance setPrograms:[NSArray arrayWithArray:temp]];
                 [sInstance setMapData:map];

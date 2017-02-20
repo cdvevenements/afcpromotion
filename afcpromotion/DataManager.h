@@ -22,7 +22,7 @@
 @interface MapData : NSObject
 @property CLLocationCoordinate2D topleft;
 @property CLLocationCoordinate2D bottomright;
-@property CLLocationCoordinate2D center;
+//@property CLLocationCoordinate2D center;
 @property float zoom;
 @property(strong, nonatomic) NSString * image;
 @end

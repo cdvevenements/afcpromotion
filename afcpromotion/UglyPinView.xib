@@ -50,6 +50,8 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.67656715409998025" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btMovie" destination="JbJ-kd-G6q" id="lOT-4M-AZT"/>

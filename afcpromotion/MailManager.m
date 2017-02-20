@@ -119,4 +119,67 @@
 }
 
 
+
++ (void)sendEmail:(NSString *)aDestination withFirstName:(NSString *)aFirstName withLastName:(NSString *)aLastName withAddress:(NSString *)aAddress withProgram:(NSString *)aProgram withType:(NSString *)aType withRooms:(NSString *)aRooms withSurface:(NSString *)aSurface withDelegate:(id<MailManagerDelegate>)aDelegate {
+    
+    // save to database
+    NSString * dbline = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;%@;%@\n", aFirstName, aLastName, aDestination, aAddress, aProgram, aType, aRooms, aSurface];
+    NSData * data = [NSData dataWithContentsOfFile:[DataManager emailDatabasePath]];
+    if(data == nil) {
+        data = [@"NOM;PRENOM;EMAIL;ADRESSE;PROGRAMME;TYPE;PIECES;SURFACE\n" dataUsingEncoding:NSUTF8StringEncoding];
+        [[NSFileManager defaultManager] createFileAtPath:[DataManager emailDatabasePath] contents:data attributes:nil];
+    }
+    
+    {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if([str containsString:dbline] == NO) {
+            // append and overwrite file
+            str = [str stringByAppendingString:dbline];
+            data = [str dataUsingEncoding:NSUTF8StringEncoding];
+            [data writeToFile:[DataManager emailDatabasePath] atomically:YES];
+        }
+    }
+    
+    // sender ?
+    MCOSMTPSession * session = [[MCOSMTPSession alloc] init];
+    [session setHostname:MAIL_HOST];
+    [session setPort:MAIL_PORT];
+    [session setUsername:MAIL_SENDER];
+    [session setPassword:MAIL_PASSWORD];
+    [session setConnectionType:MCOConnectionTypeTLS];
+    
+    // from ?
+    MCOMessageBuilder * builder = [[MCOMessageBuilder alloc] init];
+    [[builder header] setFrom:[MCOAddress addressWithDisplayName:MAIL_DISPLAY mailbox:MAIL_SENDER]];
+    
+    // to ?
+    NSArray * to = [NSArray arrayWithObject:[MCOAddress addressWithMailbox:aDestination]];
+    [[builder header] setTo:to];
+    
+    // subject ?
+    [[builder header] setSubject:[NSString stringWithFormat:MAIL_SUBJECT, aProgram]];
+    
+    // body ?
+    NSString * path = [NSString stringWithFormat:@"%@/%@", [DataManager dataPath], MAIL_FILE_NAME];
+    data = [[NSFileManager defaultManager] contentsAtPath:path];
+    [builder setHTMLBody:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+    
+    // send !
+    NSData * rfc822Data = [builder data];
+    MCOSMTPSendOperation *sendOperation = [session sendOperationWithData:rfc822Data];
+    [sendOperation start:^(NSError *error) {
+        if(error) {
+            NSLog(@"%@ Error sending email to: %@", aDestination, error);
+            if([aDelegate respondsToSelector:@selector(onMailSent:)]) {
+                [aDelegate onMailSent:error];
+            }
+        } else {
+            NSLog(@"%@ Successfully sent email!", aDestination);
+            if([aDelegate respondsToSelector:@selector(onMailSent:)]) {
+                [aDelegate onMailSent:nil];
+            }
+        }
+    }];
+}
+
 @end

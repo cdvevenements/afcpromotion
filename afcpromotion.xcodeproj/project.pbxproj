@@ -14,6 +14,7 @@
 		09723E4B1E5601E400806B18 /* GGalexandra-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E481E5601E400806B18 /* GGalexandra-Light.ttf */; };
 		09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */; };
 		09723E501E57502100806B18 /* ContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E4F1E57502100806B18 /* ContactVC.m */; };
+		09723E531E5AE0F000806B18 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 09723E521E5AE0F000806B18 /* TODO */; };
 		098B5E881E548BE600DA0105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E871E548BE600DA0105 /* main.m */; };
 		098B5E8B1E548BE600DA0105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E8A1E548BE600DA0105 /* AppDelegate.m */; };
 		098B5E911E548BE600DA0105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098B5E8F1E548BE600DA0105 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Regular.ttf"; path = "fonts/GGalexandra-Regular.ttf"; sourceTree = "<group>"; };
 		09723E4E1E57502100806B18 /* ContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactVC.h; sourceTree = "<group>"; };
 		09723E4F1E57502100806B18 /* ContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactVC.m; sourceTree = "<group>"; };
+		09723E521E5AE0F000806B18 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		098B5E831E548BE600DA0105 /* afcpromotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = afcpromotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098B5E871E548BE600DA0105 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		098B5E891E548BE600DA0105 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		098B5E851E548BE600DA0105 /* afcpromotion */ = {
 			isa = PBXGroup;
 			children = (
+				09723E521E5AE0F000806B18 /* TODO */,
 				09723E4D1E5601E900806B18 /* fonts */,
 				098B5EAF1E54963B00DA0105 /* data */,
 				098B5EA01E548EE500DA0105 /* Config.h */,
@@ -123,10 +126,10 @@
 				098B5EAA1E5494E500DA0105 /* VideoVC.h */,
 				098B5EAB1E5494E500DA0105 /* VideoVC.m */,
 				098B5EA71E5494CE00DA0105 /* PinView.h */,
+				098B5EA81E5494CE00DA0105 /* PinView.m */,
 				09723E441E55ED5900806B18 /* UglyPinView.h */,
 				09723E451E55ED5900806B18 /* UglyPinView.m */,
 				09723E3F1E54A8E300806B18 /* UglyPinView.xib */,
-				098B5EA81E5494CE00DA0105 /* PinView.m */,
 				098B5E9D1E548E5000DA0105 /* MailManager.h */,
 				098B5E9E1E548E5000DA0105 /* MailManager.m */,
 				098B5E8F1E548BE600DA0105 /* Main.storyboard */,
@@ -228,6 +231,7 @@
 				09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */,
 				09723E4A1E5601E400806B18 /* GGalexandra-Bold.ttf in Resources */,
 				09723E401E54A8E300806B18 /* UglyPinView.xib in Resources */,
+				09723E531E5AE0F000806B18 /* TODO in Resources */,
 				098B5E961E548BE600DA0105 /* LaunchScreen.storyboard in Resources */,
 				09723E4B1E5601E400806B18 /* GGalexandra-Light.ttf in Resources */,
 				098B5E931E548BE600DA0105 /* Assets.xcassets in Resources */,
