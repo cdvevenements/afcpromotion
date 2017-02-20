@@ -21,9 +21,20 @@
 
 @implementation VideoVC
 
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    [[self navigationController] setTitle:@"Retour"];
+    UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me tenir informé" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
+    [[self navigationItem] setRightBarButtonItem:contact];
+    
     
     // ui
     [[[self btMail] layer] setBorderWidth:2];

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PinView.h"
-#import "UglyPinView.h"
+//#import "PinView.h"
+//#import "UglyPinView.h"
 #import "Config.h"
 #import "VideoVC.h"
 //#import "ImageVC.h"
 
 
-@interface MapVC : UIViewController <UglyPinViewDelegate>
+@interface MapVC : UIViewController
 
 @end

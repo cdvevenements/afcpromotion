@@ -33,7 +33,7 @@
     NSString * path = [NSString stringWithFormat:@"%@/%@", [DataManager dataPath], [m image]];
     UIImage * image = [UIImage imageWithContentsOfFile:path];
     [[self ivMap] setImage:image];
-    [[self ivMap] setUserInteractionEnabled:YES];
+//    [[self ivMap] setUserInteractionEnabled:YES];
 //    UIGestureRecognizer * tap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(onMapClicked:)];
 //    [[self uvTouch] addGestureRecognizer:tap];
     
@@ -47,14 +47,14 @@
         double x = map([p coord].longitude,
                        MIN([m topleft].longitude, [m bottomright].longitude),
                        MAX([m topleft].longitude, [m bottomright].longitude),
-                       CGRectGetMinX([[self ivMap] frame]),
-                       CGRectGetMaxX([[self ivMap] frame]));
+                       CGRectGetMinX([[self view] frame]),
+                       CGRectGetMaxX([[self view] frame]));
         
         double y = map([p coord].latitude,
                        MIN([m topleft].latitude, [m bottomright].latitude),
                        MAX([m topleft].latitude, [m bottomright].latitude),
-                       CGRectGetMaxY([[self ivMap] frame]),
-                       CGRectGetMinY([[self ivMap] frame]));
+                       CGRectGetMaxY([[self view] frame]),
+                       CGRectGetMinY([[self view] frame]));
         
         
         UIButton * pin = [[UIButton alloc] initWithFrame:CGRectMake(x - SZ/2, y - SZ/2, SZ, SZ)];
@@ -72,12 +72,12 @@
         pulse.repeatCount = MAXFLOAT;
         [[pin layer] addAnimation:pulse forKey:@"PULSE_ANIM_KEY"];
 
-        
-
-        [[self ivMap] addSubview:pin];
+        [[self view] addSubview:pin];
         idx++;
     }
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -85,13 +85,13 @@
 }
 
 
-- (void)onMapClicked:(id)aSender {
-    for(UIView * pin in [[self ivMap] subviews]) {
-        if([pin isKindOfClass:[PinView class]]) {
-            [(PinView *)pin collapse];
-        }
-    }
-}
+//- (void)onMapClicked:(id)aSender {
+//    for(UIView * pin in [[self ivMap] subviews]) {
+//        if([pin isKindOfClass:[PinView class]]) {
+//            [(PinView *)pin collapse];
+//        }
+//    }
+//}
 
 
 - (void)onPinClicked:(id)aSender {

@@ -10,9 +10,9 @@
 
 
 == MAP ==
-- ? meilleures pins
+- OK meilleures pins
 - OK animation pins
-- valider le placement geographique
+- OK valider le placement geographique
 - ? include logo AFC
 
 
@@ -31,3 +31,9 @@
 
 == EMAIL ==
 - tester envoi mail
+
+
+== BUGS ==
+- retour map: animation arretee
+- retour map: ancien ecran visible
+- ipad mini: boutons non visibles

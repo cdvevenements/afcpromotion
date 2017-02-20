@@ -97,7 +97,6 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                     [map setBottomright:CLLocationCoordinate2DMake(lat, lon)];
                 }
                 
-                
 //                {
 //                    NSDictionary * coord = [m objectForKey:@"center"];
 //                    CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];

@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09723E401E54A8E300806B18 /* UglyPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09723E3F1E54A8E300806B18 /* UglyPinView.xib */; };
 		09723E431E5588C200806B18 /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E421E5588C200806B18 /* DownloadVC.m */; };
-		09723E461E55ED5900806B18 /* UglyPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E451E55ED5900806B18 /* UglyPinView.m */; };
 		09723E4A1E5601E400806B18 /* GGalexandra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E471E5601E400806B18 /* GGalexandra-Bold.ttf */; };
 		09723E4B1E5601E400806B18 /* GGalexandra-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E481E5601E400806B18 /* GGalexandra-Light.ttf */; };
 		09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */; };
@@ -22,7 +20,6 @@
 		098B5E961E548BE600DA0105 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098B5E941E548BE600DA0105 /* LaunchScreen.storyboard */; };
 		098B5E9F1E548E5000DA0105 /* MailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E9E1E548E5000DA0105 /* MailManager.m */; };
 		098B5EA61E54945C00DA0105 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5EA51E54945C00DA0105 /* MapVC.m */; };
-		098B5EA91E5494CE00DA0105 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5EA81E5494CE00DA0105 /* PinView.m */; };
 		098B5EAC1E5494E500DA0105 /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5EAB1E5494E500DA0105 /* VideoVC.m */; };
 		098B5EB01E54963B00DA0105 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 098B5EAF1E54963B00DA0105 /* data */; };
 		098B5EB61E54A08F00DA0105 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5EB51E54A08F00DA0105 /* DataManager.m */; };
@@ -30,11 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09723E3F1E54A8E300806B18 /* UglyPinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UglyPinView.xib; sourceTree = "<group>"; };
 		09723E411E5588C200806B18 /* DownloadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVC.h; sourceTree = "<group>"; };
 		09723E421E5588C200806B18 /* DownloadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
-		09723E441E55ED5900806B18 /* UglyPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UglyPinView.h; sourceTree = "<group>"; };
-		09723E451E55ED5900806B18 /* UglyPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UglyPinView.m; sourceTree = "<group>"; };
 		09723E471E5601E400806B18 /* GGalexandra-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Bold.ttf"; path = "fonts/GGalexandra-Bold.ttf"; sourceTree = "<group>"; };
 		09723E481E5601E400806B18 /* GGalexandra-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Light.ttf"; path = "fonts/GGalexandra-Light.ttf"; sourceTree = "<group>"; };
 		09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Regular.ttf"; path = "fonts/GGalexandra-Regular.ttf"; sourceTree = "<group>"; };
@@ -54,8 +48,6 @@
 		098B5EA01E548EE500DA0105 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		098B5EA41E54945C00DA0105 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		098B5EA51E54945C00DA0105 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
-		098B5EA71E5494CE00DA0105 /* PinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
-		098B5EA81E5494CE00DA0105 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		098B5EAA1E5494E500DA0105 /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		098B5EAB1E5494E500DA0105 /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
 		098B5EAF1E54963B00DA0105 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -125,11 +117,6 @@
 				098B5EA51E54945C00DA0105 /* MapVC.m */,
 				098B5EAA1E5494E500DA0105 /* VideoVC.h */,
 				098B5EAB1E5494E500DA0105 /* VideoVC.m */,
-				098B5EA71E5494CE00DA0105 /* PinView.h */,
-				098B5EA81E5494CE00DA0105 /* PinView.m */,
-				09723E441E55ED5900806B18 /* UglyPinView.h */,
-				09723E451E55ED5900806B18 /* UglyPinView.m */,
-				09723E3F1E54A8E300806B18 /* UglyPinView.xib */,
 				098B5E9D1E548E5000DA0105 /* MailManager.h */,
 				098B5E9E1E548E5000DA0105 /* MailManager.m */,
 				098B5E8F1E548BE600DA0105 /* Main.storyboard */,
@@ -230,7 +217,6 @@
 			files = (
 				09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */,
 				09723E4A1E5601E400806B18 /* GGalexandra-Bold.ttf in Resources */,
-				09723E401E54A8E300806B18 /* UglyPinView.xib in Resources */,
 				09723E531E5AE0F000806B18 /* TODO in Resources */,
 				098B5E961E548BE600DA0105 /* LaunchScreen.storyboard in Resources */,
 				09723E4B1E5601E400806B18 /* GGalexandra-Light.ttf in Resources */,
@@ -296,14 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				098B5E8B1E548BE600DA0105 /* AppDelegate.m in Sources */,
-				09723E461E55ED5900806B18 /* UglyPinView.m in Sources */,
 				098B5E9F1E548E5000DA0105 /* MailManager.m in Sources */,
 				098B5EAC1E5494E500DA0105 /* VideoVC.m in Sources */,
 				09723E431E5588C200806B18 /* DownloadVC.m in Sources */,
 				098B5E881E548BE600DA0105 /* main.m in Sources */,
 				098B5EB61E54A08F00DA0105 /* DataManager.m in Sources */,
 				098B5EA61E54945C00DA0105 /* MapVC.m in Sources */,
-				098B5EA91E5494CE00DA0105 /* PinView.m in Sources */,
 				09723E501E57502100806B18 /* ContactVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
