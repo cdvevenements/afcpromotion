@@ -166,10 +166,28 @@
     [[contents popoverPresentationController] setSourceView:pin];
     [[contents popoverPresentationController] setSourceRect:[pin bounds]];
     [[contents popoverPresentationController] setPermittedArrowDirections:UIPopoverArrowDirectionAny];
+    
+    
+    [[contents view] setTintColor:FLASH_COLOR];
 
     [self presentViewController:contents animated:YES completion:^{
-        ;
+        [self hackFont:[contents view] firstCall:YES];
     }];
+}
+
+/// CRADO LOLOLOL
+- (void)hackFont:(UIView *)parent firstCall:(BOOL)aCall {
+    
+    static int idx = 0;
+    if(aCall) {
+        idx = 0;
+    }
+    for(UIView * v in [parent subviews]) {
+        if([v isKindOfClass:[UILabel class]] && ++idx > 2) {
+            [(UILabel *)v setFont:FONT(FONT_SZ_LARGE)];
+        }
+        [self hackFont:v firstCall:NO];
+    }
 }
 
 
@@ -178,17 +196,21 @@
     
     // show web
     UIAlertAction * picture = [UIAlertAction actionWithTitle:@"Voir le site web" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    
-        
         WebVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idWebVC"];
         [vc setTitle:[aSponsor name]];
         [vc setUrl:[aSponsor url]];
         [[self navigationController] pushViewController:vc animated:YES];
-        
-//        SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[aSponsor url]];
-//        [[self navigationController] pushViewController:webViewController animated:YES];
     }];
     [picture setValue:[UIImage imageNamed:@"hand32"] forKey:@"image"];
+    
+    [[contents view] setTintColor:FLASH_COLOR];
+    
+//    NSString * str = @"Voir le site web";
+//    NSMutableAttributedString * attr = [[NSMutableAttributedString alloc] initWithString:str];
+//    [attr addAttribute:NSFontAttributeName value:FONT(FONT_SZ_MEDIUM) range:NSMakeRange(0, [str length])];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FLASH_COLOR range:NSMakeRange(0, [str length])];
+//    [picture setValue:attr forKey:@"attributedTitle"];
+    
     [contents addAction:picture];
 
     // custom title
@@ -208,11 +230,16 @@
     [[contents popoverPresentationController] setSourceRect:[aPin bounds]];
     [[contents popoverPresentationController] setPermittedArrowDirections:UIPopoverArrowDirectionAny];
     
+    
+
+    
     [self presentViewController:contents animated:YES completion:^{
-        ;
+        // hacky hacky
+        [self hackFont:[contents view] firstCall:YES];
+
     }];
 
-    // hacky hacky
+    
 }
 
 
