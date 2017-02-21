@@ -13,6 +13,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfEmail;
 @property (weak, nonatomic) IBOutlet UITextField *tfAddress;
+@property (weak, nonatomic) IBOutlet UITextField *tfZipCode;
+@property (weak, nonatomic) IBOutlet UITextField *tfPhone;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbLastName;
+@property (weak, nonatomic) IBOutlet UILabel *lbFirstName;
+@property (weak, nonatomic) IBOutlet UILabel *lbEmail;
 
 @property (weak, nonatomic) IBOutlet UIButton *btValidate;
 
@@ -20,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIView *uvType;
 @property (weak, nonatomic) IBOutlet UIView *uvRooms;
 @property (weak, nonatomic) IBOutlet UIView *uvSurface;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbProgram;
 
 @end
 
@@ -39,6 +47,26 @@
     [[self tfLastName] setDelegate:self];
     [[self tfFirstName] setDelegate:self];
     
+    [self setTitle:@"Formulaire de contact"];
+    
+    
+//    NSMutableAttributedString * attr = [[NSMutableAttributedString alloc] initWithString:@"* Nom:"];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FG_COLOR range:NSMakeRange(2, [attr length]-2)];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FLASH_COLOR range:NSMakeRange(0, 2)];
+//    [[self lbLastName] setAttributedText:attr];
+//    
+//    attr = [[NSMutableAttributedString alloc] initWithString:@"* Prénom:"];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FG_COLOR range:NSMakeRange(2, [attr length]-2)];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FLASH_COLOR range:NSMakeRange(0, 2)];
+//    [[self lbFirstName] setAttributedText:attr];
+//    
+//    attr = [[NSMutableAttributedString alloc] initWithString:@"* Adresse e-mail:"];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FG_COLOR range:NSMakeRange(2, [attr length]-2)];
+//    [attr addAttribute:NSForegroundColorAttributeName value:FLASH_COLOR range:NSMakeRange(0, 2)];
+//    [[self lbEmail] setAttributedText:attr];
+    
+    
+    
     [[self btValidate] setEnabled:NO];
     [[[self btValidate] titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
     [[self btValidate] setBackgroundColor:FLASH_COLOR];
@@ -56,9 +84,9 @@
     [[[self uvRooms] layer] setCornerRadius:4];
     
     
-    [[[self uvGender] layer] setBorderWidth:1];
-    [[[self uvGender] layer] setBorderColor:FG_COLOR.CGColor];
-    [[[self uvGender] layer] setCornerRadius:4];
+//    [[[self uvGender] layer] setBorderWidth:1];
+//    [[[self uvGender] layer] setBorderColor:FG_COLOR.CGColor];
+//    [[[self uvGender] layer] setCornerRadius:4];
     
     [[[self uvSurface] layer] setBorderWidth:1];
     [[[self uvSurface] layer] setBorderColor:FG_COLOR.CGColor];
@@ -68,11 +96,15 @@
     [[self view] setBackgroundColor:BG_COLOR];
     
     
-    [self setFont:[self view]];
+    [self configViews:[self view]];
+    
+    [[self lbProgram] setText:[[self program] name]];
+    [[self lbProgram] setFont:FONT(FONT_SZ_XLARGE)];
+    
 }
 
 
-- (void)setFont:(UIView *)aParent {
+- (void)configViews:(UIView *)aParent {
     for(UIView * v in [aParent subviews]) {
         if([v isKindOfClass:[DLRadioButton class]]) {
             [[(DLRadioButton *)v titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
@@ -90,8 +122,14 @@
         else if([v isKindOfClass:[UITextField class]]) {
             [(UITextField *)v setFont:FONT(FONT_SZ_MEDIUM)];
             [(UITextField *)v setTextColor:FG_COLOR];
+            [(UITextField *)v setText:@""];
         }
-        [self setFont:v];
+//        else if([v isKindOfClass:[UIView class]]) {
+//            [[v layer] setBorderWidth:1];
+//            [[v layer] setBorderColor:FG_COLOR.CGColor];
+//            [[v layer] setCornerRadius:4];
+//        }
+        [self configViews:v];
     }
 }
 

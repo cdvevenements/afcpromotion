@@ -49,7 +49,7 @@
     
     // ui
     [[self pcPages] setPageIndicatorTintColor:[UIColor colorWithWhite:0.0 alpha:0.4]];
-    [[self pcPages] setCurrentPageIndicatorTintColor:FG_COLOR];
+    [[self pcPages] setCurrentPageIndicatorTintColor:FLASH_COLOR];
     [[[self btMail] layer] setBorderWidth:2];
     [[[self btMail] layer] setBorderColor:[UIColor whiteColor].CGColor];
     [[[self btMail] layer] setCornerRadius:4.0];
