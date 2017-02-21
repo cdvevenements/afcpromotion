@@ -31,6 +31,7 @@
 
 #define FG_COLOR            RGBA(31, 31, 31, 255)
 #define BG_COLOR            RGBA(244, 244, 241, 255)
+#define FLASH_COLOR         RGBA(111, 26, 107, 1.00)
 
 // ==========================================================================================
 // FONTS : modify these fonts if needed, beware of the width !!!

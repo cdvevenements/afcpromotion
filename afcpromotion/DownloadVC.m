@@ -52,16 +52,12 @@
 - (IBAction)onEmailsClicked:(id)sender {
     
     mBlock = YES;
-    NSData * data = [NSData dataWithContentsOfFile:[DataManager emailDatabasePath]];
-    
     
 //    Your application has presented a UIActivityViewController (<UIActivityViewController: 0x7fc510721c00>). In its current trait environment, the modalPresentationStyle of a UIActivityViewController with this style is UIModalPresentationPopover. You must provide location information for this popover through the view controller's popoverPresentationController. You must provide either a sourceView and sourceRect or a barButtonItem.  If this information is not known when you present the view controller, you may provide it in the UIPopoverPresentationControllerDelegate method -prepareForPopoverPresentation.'
 //        *** First throw call stack:
     
-    NSString * df = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
-    NSString * path = [NSString stringWithFormat:@"%@/%@-%@", [DataManager dataPath], df, EMAIL_DATABASE];
-    UIActivityViewController * vc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:path, data, nil] applicationActivities:nil];
-    
+    NSURL * url = [NSURL fileURLWithPath:[DataManager emailDatabasePath]];
+    UIActivityViewController * vc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:url, nil] applicationActivities:nil];
     UIPopoverPresentationController * pop = [vc popoverPresentationController];
     pop.sourceView = [self btGetEmails];
     pop.sourceRect = self.btGetEmails.bounds;

@@ -11,7 +11,6 @@
 		09723E4A1E5601E400806B18 /* GGalexandra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E471E5601E400806B18 /* GGalexandra-Bold.ttf */; };
 		09723E4B1E5601E400806B18 /* GGalexandra-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E481E5601E400806B18 /* GGalexandra-Light.ttf */; };
 		09723E4C1E5601E400806B18 /* GGalexandra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */; };
-		09723E501E57502100806B18 /* ContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E4F1E57502100806B18 /* ContactVC.m */; };
 		09723E531E5AE0F000806B18 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 09723E521E5AE0F000806B18 /* TODO */; };
 		09723E571E5B4B0A00806B18 /* FormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09723E561E5B4B0A00806B18 /* FormVC.m */; };
 		098B5E881E548BE600DA0105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 098B5E871E548BE600DA0105 /* main.m */; };
@@ -33,8 +32,6 @@
 		09723E471E5601E400806B18 /* GGalexandra-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Bold.ttf"; path = "fonts/GGalexandra-Bold.ttf"; sourceTree = "<group>"; };
 		09723E481E5601E400806B18 /* GGalexandra-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Light.ttf"; path = "fonts/GGalexandra-Light.ttf"; sourceTree = "<group>"; };
 		09723E491E5601E400806B18 /* GGalexandra-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GGalexandra-Regular.ttf"; path = "fonts/GGalexandra-Regular.ttf"; sourceTree = "<group>"; };
-		09723E4E1E57502100806B18 /* ContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactVC.h; sourceTree = "<group>"; };
-		09723E4F1E57502100806B18 /* ContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactVC.m; sourceTree = "<group>"; };
 		09723E521E5AE0F000806B18 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		09723E551E5B4B0A00806B18 /* FormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormVC.h; sourceTree = "<group>"; };
 		09723E561E5B4B0A00806B18 /* FormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormVC.m; sourceTree = "<group>"; };
@@ -114,8 +111,8 @@
 				098B5EB51E54A08F00DA0105 /* DataManager.m */,
 				09723E411E5588C200806B18 /* DownloadVC.h */,
 				09723E421E5588C200806B18 /* DownloadVC.m */,
-				09723E4E1E57502100806B18 /* ContactVC.h */,
-				09723E4F1E57502100806B18 /* ContactVC.m */,
+				09723E551E5B4B0A00806B18 /* FormVC.h */,
+				09723E561E5B4B0A00806B18 /* FormVC.m */,
 				098B5EA41E54945C00DA0105 /* MapVC.h */,
 				098B5EA51E54945C00DA0105 /* MapVC.m */,
 				098B5EAA1E5494E500DA0105 /* VideoVC.h */,
@@ -127,8 +124,6 @@
 				098B5E941E548BE600DA0105 /* LaunchScreen.storyboard */,
 				098B5E971E548BE600DA0105 /* Info.plist */,
 				098B5E861E548BE600DA0105 /* Supporting Files */,
-				09723E551E5B4B0A00806B18 /* FormVC.h */,
-				09723E561E5B4B0A00806B18 /* FormVC.m */,
 			);
 			path = afcpromotion;
 			sourceTree = "<group>";
@@ -294,7 +289,6 @@
 				098B5E881E548BE600DA0105 /* main.m in Sources */,
 				098B5EB61E54A08F00DA0105 /* DataManager.m in Sources */,
 				098B5EA61E54945C00DA0105 /* MapVC.m in Sources */,
-				09723E501E57502100806B18 /* ContactVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +415,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maestun.afcpromotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -435,6 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maestun.afcpromotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

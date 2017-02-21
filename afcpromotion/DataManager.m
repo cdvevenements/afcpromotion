@@ -27,7 +27,13 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 
 
 + (NSString *)emailDatabasePath {
-    return [NSString stringWithFormat:@"%@/%@",[self dataPath], EMAIL_DATABASE];
+    static NSString * path = nil;
+    if(path == nil) {
+        NSString * folder =  [NSString stringWithFormat:@"%@/%@", [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] path], DATA_FOLDER];
+        [[NSFileManager defaultManager] createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
+        path = [NSString stringWithFormat:@"%@/%@-%@", folder, [[UIDevice currentDevice] name], EMAIL_DATABASE];
+    }
+    return path;
 }
 
 

@@ -40,8 +40,55 @@
     [[self tfFirstName] setDelegate:self];
     
     [[self btValidate] setEnabled:NO];
+    [[self btValidate] setBackgroundColor:FG_COLOR];
+//    [[self btValidate] setTitleColor:BG_COLOR forState:UIControlStateNormal];
     
+    
+    [[[self uvType] layer] setBorderWidth:1];
+    [[[self uvType] layer] setBorderColor:FG_COLOR.CGColor];
+    [[[self uvType] layer] setCornerRadius:4];
+    
+    
+    [[[self uvRooms] layer] setBorderWidth:1];
+    [[[self uvRooms] layer] setBorderColor:FG_COLOR.CGColor];
+    [[[self uvRooms] layer] setCornerRadius:4];
+    
+    
+    [[[self uvGender] layer] setBorderWidth:1];
+    [[[self uvGender] layer] setBorderColor:FG_COLOR.CGColor];
+    [[[self uvGender] layer] setCornerRadius:4];
+    
+    [[[self uvSurface] layer] setBorderWidth:1];
+    [[[self uvSurface] layer] setBorderColor:FG_COLOR.CGColor];
+    [[[self uvSurface] layer] setCornerRadius:4];
+    
+    
+    [[self view] setBackgroundColor:BG_COLOR];
+    
+    
+    [self setFont:[self view]];
 }
+
+
+- (void)setFont:(UIView *)aParent {
+    for(UIView * v in [aParent subviews]) {
+        if([v isKindOfClass:[UIButton class]]) {
+            [[(UIButton *)v titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
+            [(UIButton *)v setTitleColor:FG_COLOR forState:UIControlStateNormal];
+        }
+        else if([v isKindOfClass:[UILabel class]]) {
+            [(UILabel *)v setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
+            [(UILabel *)v setTextColor:FG_COLOR];
+        }
+        else if([v isKindOfClass:[UITextField class]]) {
+            [(UITextField *)v setFont:FONT(FONT_SZ_MEDIUM)];
+            [(UITextField *)v setTextColor:FG_COLOR];
+        }
+        [self setFont:v];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

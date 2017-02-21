@@ -35,7 +35,7 @@
 
     [[self navigationItem] setTitle:[[self program] name]]; // change le titre de la barre
 
-    UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me tenir informé" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
+    UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me contacter" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
     [[self navigationItem] setRightBarButtonItem:contact];
     
     // disable swipe back gesture

@@ -2,11 +2,12 @@
 - fontes custom partout
 - couleurs custom partout
 - partage IPA
+- ajouter du mauve en couleur flash
 
 
 == DOWNLOAD ==
 - ? bouton continuer au lieu de timer
-- bouton partage à valider
+- OK bouton partage à valider
 
 
 == MAP ==
@@ -27,7 +28,13 @@
 - NOK ajout JS pour valider email
 - NOK ajout JS pour valider champs requis
 - custom formulaire natif
-
+- nom programme en gros
+- logo AFC
+- ajouter code postal
+- ajouter n° tel
+- ajoter (*) obligatoire
+- nom et prenom cote a cote
+- "Me contacter"
 
 == EMAIL ==
 - tester envoi mail
@@ -37,3 +44,21 @@
 - OK retour map: animation arretee
 - OK retour map: ancien ecran visible
 - OK ipad mini: boutons non visibles
+
+
+
+== TODO ==
+logos mr meuble plus petits et sans pulse, à fournir
+ipads:
+- 1 ipad pro 12'
+- plusieurs classiques
+
+à fournir
+- images
+- videos
+- adresses
+- noms programme
+- coord GPS (PROG/MAGA)
+- logo magasin
+- site web magasin
+- formulaire: radio buttons

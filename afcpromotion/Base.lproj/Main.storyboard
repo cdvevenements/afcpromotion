@@ -247,11 +247,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ft0-KQ-b4I">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Huguenot" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ft0-KQ-b4I">
                                                 <rect key="frame" x="8" y="78" width="476" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prénom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX8-Nf-Bot">
                                                 <rect key="frame" x="8" y="116" width="476" height="21"/>
@@ -259,11 +259,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XPc-W6-DkK">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Olivier" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XPc-W6-DkK">
                                                 <rect key="frame" x="8" y="145" width="476" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresse e-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zc-fb-ZxG">
                                                 <rect key="frame" x="8" y="183" width="476" height="21"/>
@@ -271,11 +271,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1s-VX-Xuq">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="maestun@free.fr" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1s-VX-Xuq">
                                                 <rect key="frame" x="8" y="212" width="476" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresse postale:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-qO-ODl">
                                                 <rect key="frame" x="8" y="250" width="476" height="21"/>
@@ -287,10 +287,10 @@
                                                 <rect key="frame" x="8" y="279" width="476" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.79544595399999996" green="0.14817289450000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="L5x-qO-ODl" firstAttribute="centerX" secondItem="8yn-1n-N7h" secondAttribute="centerX" id="2f6-TM-dN0"/>
                                             <constraint firstItem="5hV-jT-ipk" firstAttribute="top" secondItem="8yn-1n-N7h" secondAttribute="top" constant="8" id="3bQ-5n-JsD"/>
@@ -596,7 +596,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.06490853345" blue="0.2203958664" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Wg6-Ch-sbA" secondAttribute="trailing" constant="8" id="4J9-v5-cF6"/>
                                             <constraint firstItem="VG3-Ef-tbU" firstAttribute="leading" secondItem="SQY-7C-hbW" secondAttribute="leading" constant="8" id="7bJ-i6-ctQ"/>
@@ -629,15 +629,15 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-TS-xAy">
-                                        <rect key="frame" x="8" y="346" width="968" height="30"/>
+                                        <rect key="frame" x="8" y="322" width="968" height="30"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Recevoir la documentation"/>
+                                        <state key="normal" title="Me contacter"/>
                                         <connections>
                                             <action selector="onValidateClicked:" destination="akF-T8-CgB" eventType="touchUpInside" id="VUM-7f-yVs"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="4ek-TS-xAy" secondAttribute="trailing" constant="8" id="8Zh-tS-99p"/>
                                     <constraint firstItem="8yn-1n-N7h" firstAttribute="width" secondItem="Tfo-dj-FoP" secondAttribute="width" multiplier="0.5" id="92Y-sW-WzO"/>
@@ -649,7 +649,7 @@
                                     <constraint firstItem="SQY-7C-hbW" firstAttribute="top" secondItem="Tfo-dj-FoP" secondAttribute="top" id="R7h-yg-PbP"/>
                                     <constraint firstAttribute="bottom" secondItem="SQY-7C-hbW" secondAttribute="bottom" id="Rrw-re-wew"/>
                                     <constraint firstItem="8yn-1n-N7h" firstAttribute="top" secondItem="Tfo-dj-FoP" secondAttribute="top" id="eFX-fu-ydZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="4ek-TS-xAy" secondAttribute="bottom" constant="8" id="g6t-qv-ZBg"/>
+                                    <constraint firstAttribute="bottom" secondItem="4ek-TS-xAy" secondAttribute="bottom" constant="32" id="g6t-qv-ZBg"/>
                                     <constraint firstItem="4ek-TS-xAy" firstAttribute="centerX" secondItem="Tfo-dj-FoP" secondAttribute="centerX" id="sM5-w2-nMz"/>
                                 </constraints>
                             </view>
@@ -658,7 +658,7 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="d2L-O3-eDB" secondAttribute="trailing" id="32z-3Q-DqE"/>
                             <constraint firstItem="Tfo-dj-FoP" firstAttribute="height" secondItem="mSx-Zr-urY" secondAttribute="height" multiplier="0.5" id="7db-5K-YoT"/>
