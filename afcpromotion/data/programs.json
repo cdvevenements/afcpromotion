@@ -11,10 +11,64 @@
         "zoom": "12",
         "image": "tlse.jpg"
     },
+    
+    
+    "agencies": [
+                 {
+                 "point": {
+                 "lat": "43.616177",
+                 "lon": "1.458094"
+                 },
+                 "name": "Agence AFC Promotion",
+                 "folder": "agency",
+                 "video": "video.mov",
+                 "address": "1 avenue Georges Pompidou, 31500 Toulouse",
+                 },
+                 ],
+    
+    
+    "sponsors": [
+                 {
+                 "point": {
+                 "lat": "43.599988",
+                 "lon": "1.440390"
+                 },
+                 "name": "Trentotto Concept Store",
+                 "url": "http://www.trentotto.fr/",
+                 "video": "",
+                 "address": "14 rue Paul Vidal, 31000 Toulouse",
+                 },
+                 
+                 
+                 {
+                 "point": {
+                 "lat": "43.604821",
+                 "lon": "1.452793"
+                 },
+                 "name": "Trentotto Original",
+                 "url": "http://www.trentotto.fr/",
+                 "video": "",
+                 "address": "11 boulevard Carnot, 31000 Toulouse",
+                 },
+                 
+                 
+                 {
+                 "point": {
+                 "lat": "43.588681",
+                 "lon": "1.431280"
+                 },
+                 "name": "Trentotto Outside",
+                 "url": "http://www.trentotto.fr/",
+                 "video": "",
+                 "address": "231 avenue de Muret, 31300 Toulouse",
+                 },
+                 ],
+    
+    
     "programs": [
                  {
                  "point": {
-                 "lat": "43.648498",
+                 "lat": "43.644498",
                  "lon": "1.433332"
                  },
                  "name": "Antarès",
@@ -50,7 +104,7 @@
                  
                  {
                  "point": {
-                 "lat": "43.622453",
+                 "lat": "43.625953",
                  "lon": "1.456617"
                  },
                  "name": "Nicol",
@@ -63,7 +117,7 @@
                  {
                  "point": {
                  "lat": "43.613241",
-                 "lon": "1.344028"
+                 "lon": "1.352028"
                  },
                  "name": "Pibrac",
                  "folder": "pibrac",

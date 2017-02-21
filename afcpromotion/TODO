@@ -1,12 +1,12 @@
 == GLOBAL ==
-- fontes custom partout
+- OK fontes custom partout
 - couleurs custom partout
 - partage IPA
 - ajouter du mauve en couleur flash
 
 
 == DOWNLOAD ==
-- ? bouton continuer au lieu de timer
+- NOK bouton continuer au lieu de timer
 - OK bouton partage à valider
 
 
@@ -14,11 +14,11 @@
 - OK meilleures pins
 - OK animation pins
 - OK valider le placement geographique
-- ? include logo AFC
+- NOK include logo AFC
 
 
 == VIDEO ==
-- ? include logo AFC
+- NOK include logo AFC
 - OK meilleure touch UI carrousel
 - OK meilleur design
 
@@ -27,7 +27,7 @@
 - NOK créer formulaire Web
 - NOK ajout JS pour valider email
 - NOK ajout JS pour valider champs requis
-- custom formulaire natif
+- OK custom formulaire natif
 - nom programme en gros
 - logo AFC
 - ajouter code postal

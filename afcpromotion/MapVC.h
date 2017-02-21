@@ -11,6 +11,7 @@
 //#import "UglyPinView.h"
 #import "Config.h"
 #import "VideoVC.h"
+#import "WebVC.h"
 //#import "ImageVC.h"
 
 

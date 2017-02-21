@@ -18,6 +18,12 @@
 @property(strong, nonatomic) NSString * address;
 @property(strong, nonatomic) NSString * video;
 @property CLLocationCoordinate2D coord;
+- (BOOL)hasVideo;
+- (BOOL)hasPictures;
+@end
+
+@interface SponsorData : ProgramData
+@property(strong, nonatomic) NSString * url;
 @end
 
 @interface MapData : NSObject
@@ -34,6 +40,8 @@
 + (NSString *)dataPath;
 + (NSString *)emailDatabasePath;
 @property (strong, nonatomic) NSArray * programs;
+@property (strong, nonatomic) NSArray * agencies;
+@property (strong, nonatomic) NSArray * sponsors;
 @property (strong, nonatomic) MapData * mapData;
 
 @end

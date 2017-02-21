@@ -40,7 +40,9 @@
     [[self tfFirstName] setDelegate:self];
     
     [[self btValidate] setEnabled:NO];
-    [[self btValidate] setBackgroundColor:FG_COLOR];
+    [[[self btValidate] titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
+    [[self btValidate] setBackgroundColor:FLASH_COLOR];
+    [[self btValidate] setTitleColor:BG_COLOR forState:UIControlStateNormal];
 //    [[self btValidate] setTitleColor:BG_COLOR forState:UIControlStateNormal];
     
     
@@ -72,10 +74,15 @@
 
 - (void)setFont:(UIView *)aParent {
     for(UIView * v in [aParent subviews]) {
-        if([v isKindOfClass:[UIButton class]]) {
-            [[(UIButton *)v titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
-            [(UIButton *)v setTitleColor:FG_COLOR forState:UIControlStateNormal];
+        if([v isKindOfClass:[DLRadioButton class]]) {
+            [[(DLRadioButton *)v titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
+            [(DLRadioButton *)v setTitleColor:FG_COLOR forState:UIControlStateNormal];
+            [(DLRadioButton *)v setIndicatorColor:FLASH_COLOR];
         }
+//        else if([v isKindOfClass:[UIButton class]]) {
+//            [[(UIButton *)v titleLabel] setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
+//            [(UIButton *)v setTitleColor:FG_COLOR forState:UIControlStateNormal];
+//        }
         else if([v isKindOfClass:[UILabel class]]) {
             [(UILabel *)v setFont:FONT_BOLD(FONT_SZ_MEDIUM)];
             [(UILabel *)v setTextColor:FG_COLOR];

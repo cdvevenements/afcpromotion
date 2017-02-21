@@ -21,6 +21,25 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 @end
 
 @implementation ProgramData
+
+- (BOOL)hasVideo {
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self video]];
+}
+
+- (BOOL)hasPictures {
+    if([[NSFileManager defaultManager] fileExistsAtPath:[self imageFolder]]) {
+        if([[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self imageFolder] error:nil] count] > 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+@end
+
+
+
+@implementation SponsorData
 @end
 
 @implementation DataManager
@@ -62,7 +81,7 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
             if ([json isKindOfClass:[NSDictionary class]]) {
                 sInstance = [[DataManager alloc] init];
                 
-                // parse
+                // PROGRAMS
                 NSArray * programs = [json objectForKey:@"programs"];
                 NSMutableArray * temp = [NSMutableArray array];
                 for(NSDictionary * program in programs) {
@@ -83,6 +102,65 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                     
                     [temp addObject:p];
                 }
+                [sInstance setPrograms:[NSArray arrayWithArray:temp]];
+
+                
+                // AGENCIES
+                NSArray * agencies = [json objectForKey:@"agencies"];
+                temp = [NSMutableArray array];
+                for(NSDictionary * agency in agencies) {
+                    NSString * name = [agency objectForKey:@"name"];
+                    NSString * address = [agency objectForKey:@"address"];
+                    NSString * folder = [agency objectForKey:@"folder"];
+                    NSString * video = [agency objectForKey:@"video"];
+                    NSDictionary * coord = [agency objectForKey:@"point"];
+                    CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];
+                    CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
+                    
+                    ProgramData * p = [[ProgramData alloc] init];
+                    [p setName:name];
+                    [p setVideo:[NSString stringWithFormat:@"%@/%@/%@", [self dataPath], folder, video]];
+                    [p setAddress:address];
+                    [p setImageFolder:[NSString stringWithFormat:@"%@/%@/images", [self dataPath], folder]];
+                    [p setCoord:CLLocationCoordinate2DMake(lat, lon)];
+                    
+                    [temp addObject:p];
+                }
+                [sInstance setAgencies:[NSArray arrayWithArray:temp]];
+                
+                
+                // SPONSORS
+                NSArray * sponsors = [json objectForKey:@"sponsors"];
+                temp = [NSMutableArray array];
+                for(NSDictionary * sponsor in sponsors) {
+                    NSString * name = [sponsor objectForKey:@"name"];
+                    NSString * address = [sponsor objectForKey:@"address"];
+                    NSString * url = [sponsor objectForKey:@"url"];
+
+//                    NSString * folder = [sponsor objectForKey:@"folder"];
+//                    if(!folder || [folder isEqualToString:@""]) {
+//                        folder = @"NULLFOLDER";
+//                    }
+//                    NSString * video = [sponsor objectForKey:@"video"];
+//                    if(!video || [video isEqualToString:@""]) {
+//                        video = @"NULLVIDEO";
+//                    }
+                    NSDictionary * coord = [sponsor objectForKey:@"point"];
+                    CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];
+                    CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
+                    
+                    SponsorData * p = [[SponsorData alloc] init];
+                    [p setName:name];
+//                    [p setVideo:[NSString stringWithFormat:@"%@/%@/%@", [self dataPath], folder, video]];
+                    [p setAddress:address];
+                    [p setUrl:url];
+//                    [p setImageFolder:[NSString stringWithFormat:@"%@/%@/images", [self dataPath], folder]];
+                    [p setCoord:CLLocationCoordinate2DMake(lat, lon)];
+                    
+                    [temp addObject:p];
+                }
+                [sInstance setSponsors:[NSArray arrayWithArray:temp]];
+                
                 
                 NSDictionary * m = [json objectForKey:@"map"];
                 MapData * map = [[MapData alloc] init];
@@ -109,8 +187,6 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 //                    CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
 //                    [map setCenter:CLLocationCoordinate2DMake(lat, lon)];
 //                }
-
-                [sInstance setPrograms:[NSArray arrayWithArray:temp]];
                 [sInstance setMapData:map];
             }
             else {
