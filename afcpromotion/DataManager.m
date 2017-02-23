@@ -8,6 +8,9 @@
 
 #import "DataManager.h"
 
+#define USERPREF_REMOTE_DATA        @"USERPREF_REMOTE_DATA"
+
+
 static DataManager * sInstance;
 
 
@@ -42,8 +45,18 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 @implementation SponsorData
 @end
 
+
+@interface DataManager()
+@property BOOL isRemoteData;
+@end
+
 @implementation DataManager
 
+
++ (void)flagRemoteData {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USERPREF_REMOTE_DATA];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 + (NSString *)emailDatabasePath {
     static NSString * path = nil;
@@ -58,11 +71,12 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 
 + (NSString *)dataPath {
     NSString * path = nil;
-#ifdef BUNDLED_DATA
-    path = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] bundlePath], DATA_FOLDER];
-#else
-     path = [NSString stringWithFormat:@"%@/%@", [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil], DATA_FOLDER];
-#endif
+    if([[DataManager instance] isRemoteData] == NO) {
+        path = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] bundlePath], DATA_FOLDER];
+    }
+    else {
+        path = [NSString stringWithFormat:@"%@/%@", [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] path], DATA_FOLDER];
+    }
     return path;
 }
 
@@ -70,16 +84,29 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 
 + (DataManager *)instance {
     if(sInstance == nil) {
+        
+        sInstance = [[DataManager alloc] init];
+        [sInstance setIsRemoteData: [[[NSUserDefaults standardUserDefaults] objectForKey:USERPREF_REMOTE_DATA] boolValue]];
+
+        
         NSError * err = nil;
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"programs" ofType:@"json" inDirectory:@"data"];
+        NSString * path;
+        if([sInstance isRemoteData] == NO) {
+            path = [NSString stringWithFormat:@"%@/%@/%@", [[NSBundle mainBundle] bundlePath], DATA_FOLDER, @"programs.json"];
+        }
+        else {
+            path = [NSString stringWithFormat:@"%@/%@/%@", [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] path], DATA_FOLDER, @"programs.json"];
+        }
+        
+//        NSString * path = [[NSBundle mainBundle] pathForResource:@"programs" ofType:@"json" inDirectory:@"data"];
         NSData * data = [[NSFileManager defaultManager] contentsAtPath:path];
+        
         id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
         if(err) {
-            NSLog(@"error: cannot open datafile");
+            NSLog(@"error: cannot open datafile %@", path);
         }
         else {
             if ([json isKindOfClass:[NSDictionary class]]) {
-                sInstance = [[DataManager alloc] init];
                 
                 // PROGRAMS
                 NSArray * programs = [json objectForKey:@"programs"];

@@ -8,13 +8,12 @@
 
 #import "DownloadVC.h"
 
-#define USERPREF_INSTALL        @"USERPREF_INSTALL"
-
 @interface DownloadVC ()
 @property (weak, nonatomic) IBOutlet UIProgressView *pvProgress;
 @property (weak, nonatomic) IBOutlet UIButton *btForceDL;
 @property (weak, nonatomic) IBOutlet UIButton *btGetEmails;
-
+@property (weak, nonatomic) IBOutlet UIButton *btContinue;
+@property (weak, nonatomic) IBOutlet UILabel *lbInfo;
 @end
 
 @implementation DownloadVC
@@ -25,6 +24,12 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [[self pvProgress] setProgress:0];
     [[self pvProgress] setHidden:YES];
+    
+    NSDictionary * dic = [[NSBundle mainBundle] infoDictionary];
+    NSString * build = [dic objectForKey:@"CFBundleVersion"];
+    NSString * version = [dic objectForKey:@"CFBundleShortVersionString"];
+    [[self lbInfo] setText:[NSString stringWithFormat:@"v%@ build %@", version, build]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +37,17 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-#ifdef BUNDLED_DATA
-    [self nextScreen:YES];
-#elif DEBUG
-    NSNumber * n = [[NSUserDefaults standardUserDefaults] objectForKey:USERPREF_INSTALL];
-    if([n boolValue]) {
-        [self nextScreen:YES];
-    }
-#else
-    [self downloadPackage];
-#endif
-}
 
 - (IBAction)onForceClicked:(id)sender {
     [self downloadPackage];
 }
+- (IBAction)onContinueClicked:(id)sender {
+    [self nextScreen];
+}
 
 - (IBAction)onEmailsClicked:(id)sender {
     
-    mBlock = YES;
+    [[self btContinue] setEnabled:NO];
     
 //    Your application has presented a UIActivityViewController (<UIActivityViewController: 0x7fc510721c00>). In its current trait environment, the modalPresentationStyle of a UIActivityViewController with this style is UIModalPresentationPopover. You must provide location information for this popover through the view controller's popoverPresentationController. You must provide either a sourceView and sourceRect or a barButtonItem.  If this information is not known when you present the view controller, you may provide it in the UIPopoverPresentationControllerDelegate method -prepareForPopoverPresentation.'
 //        *** First throw call stack:
@@ -64,8 +60,7 @@
 
     [vc setCompletionWithItemsHandler:^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         NSLog(@"completed: %@, \n%d, \n%@, \n%@,", activityType, completed, returnedItems, activityError);
-        mBlock = NO;
-        [self nextScreen:NO];
+        [[self btContinue] setEnabled:YES];
     }];
     
     [self presentViewController:vc animated:YES completion:^{
@@ -74,22 +69,23 @@
     
 }
 
-- (void) nextScreen:(BOOL)aWait {
-#ifdef DEBUG
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USERPREF_INSTALL];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-#endif
-    [NSTimer scheduledTimerWithTimeInterval:aWait ? 5.0 : 0.1 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        if(mBlock == NO) {
+- (void) nextScreen/*:(BOOL)aWait*/ {
+//#ifdef DEBUG
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USERPREF_INSTALL];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//#endif
+//    [NSTimer scheduledTimerWithTimeInterval:aWait ? 5.0 : 0.1 repeats:NO block:^(NSTimer * _Nonnull timer) {
+//        if(mBlock == NO) {
             UINavigationController * nc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idMapVC"];
             [[self navigationController] pushViewController:nc animated:NO];
-        }
-    }];
+//        }
+//    }];
 }
 
 
 - (void)downloadPackage {
-    mBlock = YES;
+    
+    [[self btContinue] setEnabled:NO];
     [[self pvProgress] setHidden:NO];
     [[self btForceDL] setHidden:YES];
     [[self btGetEmails] setHidden:YES];
@@ -97,6 +93,8 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:REMOTE_PACKAGE_URL]];
+    
+    [[self lbInfo] setText:@"Téléchargement des données..."];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -109,20 +107,28 @@
         if(!error) {
             NSLog(@"File downloaded to: %@", filePath);
             
+            [[self lbInfo] setText:@"Décompression..."];
+            [[self pvProgress] setProgress:0];
+            
             [SSZipArchive unzipFileAtPath:[filePath path] toDestination:[[filePath path] stringByDeletingLastPathComponent] progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[self pvProgress] setProgress:(double)entryNumber / (double)total];
                 });
             } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded) {
-                    mBlock = NO;
-                    [self nextScreen:NO];
+                    [DataManager flagRemoteData];
+                    
+                    
+                    
+                    [[self lbInfo] setText:@"Les données ont été mises à jour."];
+                    [[self btContinue] setEnabled:YES];
+                    [SVProgressHUD showSuccessWithStatus:@"Les données ont été mises à jour !"];
                 }
                 else {
-                    ////////////////////
                     [SVProgressHUD showErrorWithStatus:@"Echec de la décompression."];
                     [[self btForceDL] setHidden:NO];
                     [[self btGetEmails] setHidden:NO];
+                    [[self btContinue] setEnabled:YES];
                 }
             }];
         }

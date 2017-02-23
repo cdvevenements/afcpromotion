@@ -30,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[self view] setBackgroundColor:BG_COLOR];
+    
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     [[[self navigationController] navigationItem] setTitle:@"Retour"];
 
@@ -145,7 +147,7 @@
     
 }
 - (void)videoPlayer:(VIMVideoPlayer *)videoPlayer didFailWithError:(NSError *)error {
-    [SVProgressHUD showErrorWithStatus:[error description]];
+    NSLog(@"%@", [error description]);
 }
 
 

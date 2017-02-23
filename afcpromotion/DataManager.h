@@ -34,7 +34,9 @@
 @property(strong, nonatomic) NSString * image;
 @end
 
-@interface DataManager : NSObject
+@interface DataManager : NSObject {
+    BOOL mRemoteData;
+}
 
 + (DataManager *) instance;
 + (NSString *)dataPath;
@@ -43,6 +45,7 @@
 @property (strong, nonatomic) NSArray * agencies;
 @property (strong, nonatomic) NSArray * sponsors;
 @property (strong, nonatomic) MapData * mapData;
++ (void)flagRemoteData;
 
 @end
 

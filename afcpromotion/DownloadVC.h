@@ -14,7 +14,7 @@
 #import "DataManager.h"
 
 @interface DownloadVC : UIViewController {
-    BOOL mBlock;
+//    BOOL mBlock;
 }
 
 @end

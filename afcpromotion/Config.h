@@ -9,7 +9,6 @@
 #ifndef Config_h
 #define Config_h
 
-#define BUNDLED_DATA
 #define REMOTE_PACKAGE_URL  @"http://olivier.huguenot.free.fr/cdv/afcpromotion/data.zip"
 #define DATA_FOLDER         @"data"
 
