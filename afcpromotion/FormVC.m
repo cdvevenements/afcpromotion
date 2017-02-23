@@ -9,6 +9,7 @@
 #import "FormVC.h"
 
 @interface FormVC ()
+@property (weak, nonatomic) IBOutlet UIView *uvData;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfEmail;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIView *uvRooms;
 @property (weak, nonatomic) IBOutlet UIView *uvSurface;
 
+@property (weak, nonatomic) IBOutlet UIView *uvHeader;
 @property (weak, nonatomic) IBOutlet UILabel *lbProgram;
 
 @end
@@ -44,11 +46,20 @@
     // Do any additional setup after loading the view.
     
     [[self tfEmail] setDelegate:self];
+    [[self tfEmail] setInputAccessoryView:nil];
     [[self tfLastName] setDelegate:self];
+    [[self tfLastName] setInputAccessoryView:nil];
     [[self tfFirstName] setDelegate:self];
+    [[self tfFirstName] setInputAccessoryView:nil];
     
     [self setTitle:@"Formulaire de contact"];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification object:nil];
     
 //    NSMutableAttributedString * attr = [[NSMutableAttributedString alloc] initWithString:@"* Nom:"];
 //    [attr addAttribute:NSForegroundColorAttributeName value:FG_COLOR range:NSMakeRange(2, [attr length]-2)];
@@ -101,6 +112,26 @@
     [[self lbProgram] setText:[[self program] name]];
     [[self lbProgram] setFont:FONT(FONT_SZ_XLARGE)];
     
+}
+
+
+- (void)keyboardWillShow:(id)aSender {
+    CGAffineTransform t  = CGAffineTransformMakeTranslation(0, -1 * (CGRectGetHeight([[self uvHeader] frame]) + 8));
+    [[self uvData] setTransform:t];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [[self uvHeader] setAlpha:0.0];
+    }];
+    
+}
+
+
+- (void)keyboardWillHide:(id)aSender {
+    CGAffineTransform t  = CGAffineTransformMakeTranslation(0, 1 * (CGRectGetHeight([[self uvHeader] frame]) + 8));
+    [[self uvData] setTransform:CGAffineTransformMakeTranslation(0, 0)];
+    [UIView animateWithDuration:0.3 animations:^{
+        [[self uvHeader] setAlpha:1.0];
+    }];
 }
 
 
