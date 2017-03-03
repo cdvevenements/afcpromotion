@@ -9,7 +9,13 @@
 #import "MapVC.h"
 
 @interface MapVC ()
+@property (weak, nonatomic) IBOutlet UIView *ivSponsors;
 @property (weak, nonatomic) IBOutlet UIImageView *ivMap;
+@property (weak, nonatomic) IBOutlet UIImageView *logo1;
+@property (weak, nonatomic) IBOutlet UIImageView *logo3;
+@property (weak, nonatomic) IBOutlet UIImageView *logo4;
+@property (weak, nonatomic) IBOutlet UIButton *btSponsors;
+@property (weak, nonatomic) IBOutlet UIImageView *logo2;
 @end
 
 
@@ -32,6 +38,14 @@
 }
 
 
+- (UIImage *)gsImage:(UIImage *)inputImage {
+//    UIImage *inputImage = [UIImage imageNamed:@"inputimage.png"];
+    GPUImageGrayscaleFilter *grayscaleFilter = [[GPUImageGrayscaleFilter alloc] init];
+    return [grayscaleFilter imageByFilteringImage:inputImage];
+
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,9 +65,24 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: FONT_BOLD(FONT_SZ_MEDIUM), NSForegroundColorAttributeName: FG_COLOR} forState:UIControlStateNormal];
 
     
-    [self addPins:[[DataManager instance] programs] logo:[UIImage imageNamed:@"logo_round"] size:64 tagOffset:TAG_OFFSET_PROGRAM];
-    [self addPins:[[DataManager instance] agencies] logo:[UIImage imageNamed:@"logo_inv_round"] size:64 tagOffset:TAG_OFFSET_AGENCY];
-    [self addPins:[[DataManager instance] sponsors] logo:[UIImage imageNamed:@"logo_sponsor_round"] size:48 tagOffset:TAG_OFFSET_SPONSOR];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    CGFloat sz = screenBounds.size.width / 16;
+    
+    
+    [self addPins:[[DataManager instance] programs] logo:[UIImage imageNamed:@"logo_round"] size:sz tagOffset:TAG_OFFSET_PROGRAM];
+    [self addPins:[[DataManager instance] agencies] logo:[UIImage imageNamed:@"logo_inv_round"] size:sz tagOffset:TAG_OFFSET_AGENCY];
+    [self addPins:[[DataManager instance] sponsors] logo:[UIImage imageNamed:@"logo_sponsor_round"] size:sz tagOffset:TAG_OFFSET_SPONSOR];
+    
+    [[self logo1] setImage: [self gsImage:[[self logo1] image]]];
+    [[self logo2] setImage: [self gsImage:[[self logo2] image]]];
+    [[self logo3] setImage: [self gsImage:[[self logo3] image]]];
+    [[self logo4] setImage: [self gsImage:[[self logo4] image]]];
+    
+    CGAffineTransform t  = CGAffineTransformMakeTranslation(-1 * (CGRectGetWidth([[self view] frame])) ,0);
+    [[self ivSponsors] setTransform:t];
+    [[self ivSponsors] setAlpha:0.0];
+    [[self view] bringSubviewToFront: [self ivSponsors]];
+    
     
 }
 
@@ -80,6 +109,11 @@
         
         UIButton * pin = [[UIButton alloc] initWithFrame:CGRectMake(x - aSize/2, y - aSize/2, aSize, aSize)];
         [pin setBackgroundColor:BG_COLOR];
+        
+        if([p isKindOfClass:[SponsorData class]]) {
+            aLogo = [(SponsorData *)p icon];
+        }
+        
         [pin setImage:aLogo forState:UIControlStateNormal];
         [pin setTag:aOffset + idx];
         [[pin layer] setCornerRadius:aSize / 2];
@@ -94,7 +128,7 @@
 
 - (void)startAnimation {
     for(UIView * v in [[self view] subviews]) {
-        if([v isKindOfClass:[UIButton class]] && [v tag] < TAG_OFFSET_AGENCY) {
+        if([v isKindOfClass:[UIButton class]] && [v tag] < TAG_OFFSET_AGENCY && v != [self btSponsors]) {
             CABasicAnimation * pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
             pulse.duration = .5;
             pulse.toValue = [NSNumber numberWithFloat:1.1];
@@ -249,6 +283,32 @@
     [vc setProgram:aProgram];
     [[self navigationController] pushViewController:vc animated:YES];
 }
+
+
+- (IBAction)onSponsorsClicked:(id)sender {
+    [UIView animateWithDuration:0.3 animations:^{
+        [[self ivSponsors] setAlpha:1.0];
+        CGAffineTransform t  = CGAffineTransformMakeTranslation(0, 0);
+        [[self ivSponsors] setTransform:t];
+
+    } completion:^(BOOL finished) {
+        if(finished) {
+            [[self ivMap] setUserInteractionEnabled:YES];
+            [[self ivMap] addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMapClicked:)]];
+        }
+    }];
+    
+}
+
+
+- (IBAction)onMapClicked:(id)sender {
+    [UIView animateWithDuration:0.3 animations:^{
+        [[self ivSponsors] setAlpha:0.0];
+        CGAffineTransform t  = CGAffineTransformMakeTranslation(-1 * (CGRectGetWidth([[self view] frame])) ,0);
+        [[self ivSponsors] setTransform:t];
+    }];
+}
+
 
 
 /*

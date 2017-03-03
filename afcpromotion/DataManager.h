@@ -23,6 +23,7 @@
 @end
 
 @interface SponsorData : ProgramData
+@property(strong, nonatomic) UIImage * icon;
 @property(strong, nonatomic) NSString * url;
 @end
 

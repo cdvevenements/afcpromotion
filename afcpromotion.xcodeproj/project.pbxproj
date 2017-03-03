@@ -172,6 +172,7 @@
 				45DACDFBD8FE0033E57F0D4F /* [CP] Embed Pods Frameworks */,
 				3E7A312E4B9E61D0B90AC9D2 /* [CP] Copy Pods Resources */,
 				09723E671E5D763700806B18 /* ShellScript */,
+				09723E681E5F66DB00806B18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -193,7 +194,7 @@
 				TargetAttributes = {
 					098B5E821E548BE600DA0105 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = GR7J6F648G;
+						DevelopmentTeam = UH5S7ZCVL7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -247,6 +248,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\nbuildNumber=$(printf \"%d\" $buildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		09723E681E5F66DB00806B18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b4c6239fddeb0de63a990f86035fe5cb2e2ee3e8 6d2953d343718a7467845344645858857431e7d4e48a55e40b2f494af6d4dce3";
 		};
 		0FD0AFF69DE7B2B9509F8562 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -429,11 +443,12 @@
 			baseConfigurationReference = 4683587FBD6FE3648868D533 /* Pods-afcpromotion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GR7J6F648G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UH5S7ZCVL7;
 				INFOPLIST_FILE = afcpromotion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maestun.afcpromotion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cdvrallyes.afcpromotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -444,11 +459,12 @@
 			baseConfigurationReference = 0A9225910FB419295E09F909 /* Pods-afcpromotion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GR7J6F648G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UH5S7ZCVL7;
 				INFOPLIST_FILE = afcpromotion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maestun.afcpromotion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cdvrallyes.afcpromotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Config.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -18,7 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [Fabric with:@[[Crashlytics class]]];
+
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName: FG_COLOR,
                                                             NSBackgroundColorAttributeName: BG_COLOR,

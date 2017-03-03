@@ -161,6 +161,7 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                 temp = [NSMutableArray array];
                 for(NSDictionary * sponsor in sponsors) {
                     NSString * name = [sponsor objectForKey:@"name"];
+                    NSString * icon = [sponsor objectForKey:@"icon"];
                     NSString * address = [sponsor objectForKey:@"address"];
                     NSString * url = [sponsor objectForKey:@"url"];
 
@@ -178,6 +179,8 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                     
                     SponsorData * p = [[SponsorData alloc] init];
                     [p setName:name];
+                    NSData * icondata = [[NSFileManager defaultManager] contentsAtPath:[NSString stringWithFormat:@"%@/%@", [self dataPath], icon]];
+                    [p setIcon:[UIImage imageWithData:icondata]];
 //                    [p setVideo:[NSString stringWithFormat:@"%@/%@/%@", [self dataPath], folder, video]];
                     [p setAddress:address];
                     [p setUrl:url];

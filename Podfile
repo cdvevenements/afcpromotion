@@ -13,4 +13,7 @@ target 'afcpromotion' do
   pod 'SSZipArchive'
   pod 'SVProgressHUD'
   pod 'DLRadioButton'
+  pod 'GPUImage'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
