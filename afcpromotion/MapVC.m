@@ -11,11 +11,11 @@
 @interface MapVC ()
 @property (weak, nonatomic) IBOutlet UIView *ivSponsors;
 @property (weak, nonatomic) IBOutlet UIImageView *ivMap;
-@property (weak, nonatomic) IBOutlet UIImageView *logo1;
-@property (weak, nonatomic) IBOutlet UIImageView *logo3;
-@property (weak, nonatomic) IBOutlet UIImageView *logo4;
+//@property (weak, nonatomic) IBOutlet UIImageView *logo1;
+//@property (weak, nonatomic) IBOutlet UIImageView *logo3;
+//@property (weak, nonatomic) IBOutlet UIImageView *logo4;
 @property (weak, nonatomic) IBOutlet UIButton *btSponsors;
-@property (weak, nonatomic) IBOutlet UIImageView *logo2;
+//@property (weak, nonatomic) IBOutlet UIImageView *logo2;
 @end
 
 
@@ -73,17 +73,18 @@
     [self addPins:[[DataManager instance] agencies] logo:[UIImage imageNamed:@"logo_inv_round"] size:sz tagOffset:TAG_OFFSET_AGENCY];
     [self addPins:[[DataManager instance] sponsors] logo:[UIImage imageNamed:@"logo_sponsor_round"] size:sz tagOffset:TAG_OFFSET_SPONSOR];
     
-    [[self logo1] setImage: [self gsImage:[[self logo1] image]]];
-    [[self logo2] setImage: [self gsImage:[[self logo2] image]]];
-    [[self logo3] setImage: [self gsImage:[[self logo3] image]]];
-    [[self logo4] setImage: [self gsImage:[[self logo4] image]]];
+    
+    for(UIView * v in [[self ivSponsors] subviews]) {
+        if([v isKindOfClass:[UIImageView class]]) {
+            [(UIImageView*)v setImage: [self gsImage:[(UIImageView*)v image]]];
+        }
+    }
+    
     
     CGAffineTransform t  = CGAffineTransformMakeTranslation(-1 * (CGRectGetWidth([[self view] frame])) ,0);
     [[self ivSponsors] setTransform:t];
     [[self ivSponsors] setAlpha:0.0];
     [[self view] bringSubviewToFront: [self ivSponsors]];
-    
-    
 }
 
 

@@ -66,6 +66,7 @@
     
 
     // video
+    [[[self uvPlayer] player] setMuted:YES];
     [[[self uvPlayer] player] setURL:[NSURL fileURLWithPath:[[self program] video]]];
     [[[self uvPlayer] player] setLooping:YES];
     [[[self uvPlayer] player] disableAirplay];
