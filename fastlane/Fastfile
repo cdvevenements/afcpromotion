@@ -11,7 +11,7 @@ platform :ios do
     # set 'export_method' to 'ad-hoc' if your Crashlytics Beta distribution uses ad-hoc provisioning
     gym(scheme: 'afcpromotion', export_method: 'development')
 
-    emails = values[:test_email] ? values[:test_email] : ['olivier@cdvrallyes.com'] # You can list more emails here
+    emails = values[:test_email] ? values[:test_email] : ['olivier@cdvrallyes.com', 'max@cdvrallyes.com'] # You can list more emails here
     groups = values[:test_email] ? nil : nil # You can define groups on the web and reference them here
 
     crashlytics(api_token: 'b4c6239fddeb0de63a990f86035fe5cb2e2ee3e8',

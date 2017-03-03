@@ -36,7 +36,7 @@
                  "icon": "logo_TTT_concept-store-noir.png",
                  "name": "Trentotto Concept Store",
                  "url": "http://www.trentotto.fr/",
-                 "video": "",
+                 "video": "Trentotto_final.mp4",
                  "address": "14 rue Paul Vidal, 31000 Toulouse",
                  },
                  
@@ -49,7 +49,7 @@
                  "icon": "logo_TTT_original-noir.png",
                  "name": "Trentotto Original",
                  "url": "http://www.trentotto.fr/",
-                 "video": "",
+                 "video": "Trentotto_final.mp4",
                  "address": "11 boulevard Carnot, 31000 Toulouse",
                  },
                  
@@ -62,7 +62,7 @@
                  "icon": "logo_TTT_outside-noir.png",
                  "name": "Trentotto Outside",
                  "url": "http://www.trentotto.fr/",
-                 "video": "",
+                 "video": "Trentotto_final.mp4",
                  "address": "231 avenue de Muret, 31300 Toulouse",
                  },
                  ],
@@ -86,7 +86,7 @@
                  "lat": "43.596381",
                  "lon": "1.421934"
                  },
-                 "name": "BL15",
+                 "name": "BL15 - Koenings",
                  "folder": "bl15",
                  "video": "video.mov",
                  "address": "13, 14 et 15 place de Barrière de Lombez, 31300 Toulouse",
@@ -131,6 +131,18 @@
                  
                  {
                  "point": {
+                 "lat": "43.613241",
+                 "lon": "1.352028"
+                 },
+                 "name": "Le 63",
+                 "folder": "le63",
+                 "video": "video.mov",
+                 "address": "31820 Pibrac",
+                 },
+                 
+                 
+                 {
+                 "point": {
                  "lat": "43.554906",
                  "lon": "1.509777"
                  },
@@ -139,5 +151,7 @@
                  "video": "video.mov",
                  "address": "5 impasse des Raisins, 31650 Saint-Orens-de-Gameville",
                  }
+                 
+                 
                  ]
 }

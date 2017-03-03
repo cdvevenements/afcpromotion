@@ -151,6 +151,7 @@
     
     UIButton * pin = (UIButton *)aSender;
     ProgramData * program = nil;
+    BOOL showContact = YES;
     
     if([pin tag] < TAG_OFFSET_AGENCY) {
         program = [[[DataManager instance] programs] objectAtIndex: [pin tag]];
@@ -159,9 +160,10 @@
         program = [[[DataManager instance] agencies] objectAtIndex: [pin tag] - TAG_OFFSET_AGENCY];
     }
     else {
-        SponsorData * sp = [[[DataManager instance] sponsors] objectAtIndex: [pin tag] - TAG_OFFSET_SPONSOR];
-        [self hackySponsor:sp sourcePin:pin];
-        return;
+        program = [[[DataManager instance] sponsors] objectAtIndex: [pin tag] - TAG_OFFSET_SPONSOR];
+        showContact=NO;
+//        [self hackySponsor:sp sourcePin:pin];
+//           program = [[[DataManager instance] agencies] objectAtIndex: [pin tag] - TAG_OFFSET_SPONSOR];
     }
     
     UIAlertController * contents = [UIAlertController alertControllerWithTitle:[program name] message:[program address] preferredStyle:UIAlertControllerStyleActionSheet];
@@ -169,7 +171,7 @@
     // show video
     if([program hasVideo]) {
         UIAlertAction * video = [UIAlertAction actionWithTitle:@"Voir la vidéo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self showMedia:program isVideo:YES];
+            [self showMedia:program isVideo:YES showContact:showContact];
         }];
         
         [video setValue:[UIImage imageNamed:@"movie32"] forKey:@"image"];
@@ -179,7 +181,7 @@
     // show pictures
     if([program hasPictures]) {
         UIAlertAction * picture = [UIAlertAction actionWithTitle:@"Voir les images" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self showMedia:program isVideo:NO];
+            [self showMedia:program isVideo:NO showContact:showContact];
         }];
         [picture setValue:[UIImage imageNamed:@"picture32"] forKey:@"image"];
         [contents addAction:picture];
@@ -229,7 +231,7 @@
     UIAlertController * contents = [UIAlertController alertControllerWithTitle:[aSponsor name] message:[aSponsor address] preferredStyle:UIAlertControllerStyleActionSheet];
     
     // show web
-    UIAlertAction * picture = [UIAlertAction actionWithTitle:@"Voir le site web" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction * picture = [UIAlertAction actionWithTitle:@"Voir la vidéo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         WebVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idWebVC"];
         [vc setTitle:[aSponsor name]];
         [vc setUrl:[aSponsor url]];
@@ -277,10 +279,11 @@
 }
 
 
-- (void)showMedia:(ProgramData *)aProgram isVideo:(BOOL)aIsVideo {
+- (void)showMedia:(ProgramData *)aProgram isVideo:(BOOL)aIsVideo showContact:(BOOL)aContact {
     VideoVC * vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"idVideoVC"];
     [vc setIsVideo:aIsVideo];
     [vc setProgram:aProgram];
+    [vc setShowContact:aContact];
     [[self navigationController] pushViewController:vc animated:YES];
 }
 

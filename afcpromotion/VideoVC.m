@@ -27,6 +27,10 @@
 }
 
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [[self cvCarousel] setHidden:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,8 +41,11 @@
 
     [[self navigationItem] setTitle:[[self program] name]]; // change le titre de la barre
 
-    UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me contacter" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
-    [[self navigationItem] setRightBarButtonItem:contact];
+    
+    if([self showContact]) {
+        UIBarButtonItem * contact = [[UIBarButtonItem alloc] initWithTitle:@"Me contacter" style:UIBarButtonItemStylePlain target:self action:@selector(onMail:)];
+        [[self navigationItem] setRightBarButtonItem:contact];
+    }
     
     // disable swipe back gesture
     if ([[self navigationController] respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -98,11 +105,6 @@
     [[self pcPages] setHidden:[self isVideo]];
     [[self cvCarousel] setHidden:[self isVideo]];
     [[self uvPlayer] setHidden:![self isVideo]];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-//    [[[self uvPlayer] player] pause];
 }
 
 

@@ -19,4 +19,5 @@
 @interface VideoVC : UIViewController <VIMVideoPlayerDelegate, MailManagerDelegate, iCarouselDataSource, iCarouselDelegate>
 @property (strong, nonatomic) ProgramData *program;
 @property BOOL isVideo;
+@property BOOL showContact;
 @end

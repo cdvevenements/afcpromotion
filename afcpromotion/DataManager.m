@@ -169,10 +169,10 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
 //                    if(!folder || [folder isEqualToString:@""]) {
 //                        folder = @"NULLFOLDER";
 //                    }
-//                    NSString * video = [sponsor objectForKey:@"video"];
-//                    if(!video || [video isEqualToString:@""]) {
-//                        video = @"NULLVIDEO";
-//                    }
+                    NSString * video = [sponsor objectForKey:@"video"];
+                    if(!video || [video isEqualToString:@""]) {
+                        video = @"NULLVIDEO";
+                    }
                     NSDictionary * coord = [sponsor objectForKey:@"point"];
                     CLLocationDegrees lat = [[coord objectForKey:@"lat"] doubleValue];
                     CLLocationDegrees lon = [[coord objectForKey:@"lon"] doubleValue];
@@ -181,7 +181,7 @@ double map(double x, double in_min, double in_max, double out_min, double out_ma
                     [p setName:name];
                     NSData * icondata = [[NSFileManager defaultManager] contentsAtPath:[NSString stringWithFormat:@"%@/%@", [self dataPath], icon]];
                     [p setIcon:[UIImage imageWithData:icondata]];
-//                    [p setVideo:[NSString stringWithFormat:@"%@/%@/%@", [self dataPath], folder, video]];
+                    [p setVideo:[NSString stringWithFormat:@"%@/%@", [self dataPath], video]];
                     [p setAddress:address];
                     [p setUrl:url];
 //                    [p setImageFolder:[NSString stringWithFormat:@"%@/%@/images", [self dataPath], folder]];
