@@ -90,6 +90,7 @@
     [[self cvCarousel] setBounceDistance:0.2];
     [[self cvCarousel] setType:iCarouselTypeLinear];
     [[self cvCarousel] setScrollSpeed:0.4];
+    
 
     [[self pcPages] setNumberOfPages:[[self images] count]];
     [[self pcPages] setCurrentPage:0];
@@ -206,6 +207,9 @@
             break;
         case iCarouselOptionFadeRange:
             aValue = 2.0;
+            break;
+        case iCarouselOptionOffsetMultiplier:
+            aValue *= 2;
             break;
         default:
             break;
